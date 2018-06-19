@@ -15,13 +15,43 @@ namespace TechnossusDataAccessLayer
 			tblUserModel usr = new tblUserModel();
 			return usr;
 		}
-		public List<tblUserModel> getUserList()
+        //Same funvction will work for search and get All User List
+		public List<tblUserModel> getUserList(string name ="",string skill="")
 		{
+            dynamic lst;
 			List<tblUserModel> usrLst = new List<tblUserModel>();
-			var lst = from tu in dbEntities.tblUsers
-					  join tul in dbEntities.tblUserSkillLinks on tu.Id equals tul.userId
-					  join ts in dbEntities.tblSkills on tul.skillId equals ts.Id
-					  select new { tu.Id, tu.Name, ts.skill };
+           if(name !="" && skill !="")
+            {
+                lst = from tu in dbEntities.tblUsers
+                      join tul in dbEntities.tblUserSkillLinks on tu.Id equals tul.userId
+                      join ts in dbEntities.tblSkills on tul.skillId equals ts.Id
+                      where tu.Name.Contains("%/" + name + "/%") && ts.skill.Contains("%/" + skill + "/%")
+                      select new { tu.Id, tu.Name, ts.skill };
+            }
+            else if(name !="")
+            {
+                lst = from tu in dbEntities.tblUsers
+                      join tul in dbEntities.tblUserSkillLinks on tu.Id equals tul.userId
+                      join ts in dbEntities.tblSkills on tul.skillId equals ts.Id
+                      where tu.Name.Contains("%/" + name +"/%")
+                      select new { tu.Id, tu.Name, ts.skill };
+            }
+            else if(skill !="")
+            {
+                lst = from tu in dbEntities.tblUsers
+                      join tul in dbEntities.tblUserSkillLinks on tu.Id equals tul.userId
+                      join ts in dbEntities.tblSkills on tul.skillId equals ts.Id
+                      where ts.skill.Contains("%/" + skill + "/%")
+                      select new { tu.Id, tu.Name, ts.skill };
+            }
+            else
+            {
+                lst = from tu in dbEntities.tblUsers
+                      join tul in dbEntities.tblUserSkillLinks on tu.Id equals tul.userId
+                      join ts in dbEntities.tblSkills on tul.skillId equals ts.Id                      
+                      select new { tu.Id, tu.Name, ts.skill };
+            }
+			 
 			//We can also achive the same with a complex sql query or stored procedure
 			foreach (var t in lst)
 			{
