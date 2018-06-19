@@ -13,6 +13,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using TechnossusDataAccessLayer;
+using TechnossusModel;
 using TechnossusWebApi.Models;
 using TechnossusWebApi.Providers;
 using TechnossusWebApi.Results;
@@ -25,10 +27,13 @@ namespace TechnossusWebApi.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-
-        public AccountController()
+		public tblUser_Operations dataAccess = new tblUser_Operations();
+		public AccountController()
         {
-        }
+
+		tblUserModel obj =	dataAccess.getUser(1);
+		
+		}
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)

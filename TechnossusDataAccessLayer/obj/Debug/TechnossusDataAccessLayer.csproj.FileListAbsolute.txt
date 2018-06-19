@@ -1,0 +1,12 @@
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\bin\Debug\TechnossusDataAccessLayer.dll.config
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\bin\Debug\TechnossusDataAccessLayer.dll
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\bin\Debug\TechnossusDataAccessLayer.pdb
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\obj\Debug\TechnossusDataAccessLayer.csprojAssemblyReference.cache
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\obj\Debug\TechnossusDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\obj\Debug\TechnossusDataAccessLayer.csproj.CopyComplete
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\obj\Debug\TechnossusDataAccessLayer.dll
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataAccessLayer\obj\Debug\TechnossusDataAccessLayer.pdb

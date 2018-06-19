@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnossusAssignment", "TechnossusAssignment\TechnossusAssignment.csproj", "{65C3F75C-FD60-41FF-9530-64FD1BF95678}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnossusDataAccessLayer", "TechnossusDataAccessLayer\TechnossusDataAccessLayer.csproj", "{56D472C1-E757-4A68-88E5-0D11AC113FEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnossusWebApi", "TechnossusWebApi\TechnossusWebApi.csproj", "{C34BE7E6-74C8-4C29-8537-78BE3A07C129}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnossusModel", "TechnossusModel\TechnossusModel.csproj", "{4E14ED01-EA4C-4A04-819C-40A107FF26E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +21,23 @@ Global
 		{65C3F75C-FD60-41FF-9530-64FD1BF95678}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65C3F75C-FD60-41FF-9530-64FD1BF95678}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65C3F75C-FD60-41FF-9530-64FD1BF95678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D472C1-E757-4A68-88E5-0D11AC113FEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D472C1-E757-4A68-88E5-0D11AC113FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D472C1-E757-4A68-88E5-0D11AC113FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D472C1-E757-4A68-88E5-0D11AC113FEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C34BE7E6-74C8-4C29-8537-78BE3A07C129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C34BE7E6-74C8-4C29-8537-78BE3A07C129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C34BE7E6-74C8-4C29-8537-78BE3A07C129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C34BE7E6-74C8-4C29-8537-78BE3A07C129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E14ED01-EA4C-4A04-819C-40A107FF26E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E14ED01-EA4C-4A04-819C-40A107FF26E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E14ED01-EA4C-4A04-819C-40A107FF26E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E14ED01-EA4C-4A04-819C-40A107FF26E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E605B37-F64B-4C87-84E6-39D36EE16106}
 	EndGlobalSection
 EndGlobal

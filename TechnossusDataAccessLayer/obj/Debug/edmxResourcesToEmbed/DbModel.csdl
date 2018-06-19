@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechnossusDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblSkill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="skill" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblUserSkillLinks" Relationship="Self.FK__tblUserSk__skill__15502E78" FromRole="tblSkill" ToRole="tblUserSkillLink" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblUserSkillLinks" Relationship="Self.FK__tblUserSk__userI__145C0A3F" FromRole="tblUser" ToRole="tblUserSkillLink" />
+  </EntityType>
+  <EntityType Name="tblUserSkillLink">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="skillId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblSkill" Relationship="Self.FK__tblUserSk__skill__15502E78" FromRole="tblUserSkillLink" ToRole="tblSkill" />
+    <NavigationProperty Name="tblUser" Relationship="Self.FK__tblUserSk__userI__145C0A3F" FromRole="tblUserSkillLink" ToRole="tblUser" />
+  </EntityType>
+  <Association Name="FK__tblUserSk__skill__15502E78">
+    <End Role="tblSkill" Type="Self.tblSkill" Multiplicity="1" />
+    <End Role="tblUserSkillLink" Type="Self.tblUserSkillLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSkill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUserSkillLink">
+        <PropertyRef Name="skillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblUserSk__userI__145C0A3F">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+    <End Role="tblUserSkillLink" Type="Self.tblUserSkillLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUserSkillLink">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TechnossusDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblSkills" EntityType="Self.tblSkill" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <EntitySet Name="tblUserSkillLinks" EntityType="Self.tblUserSkillLink" />
+    <AssociationSet Name="FK__tblUserSk__skill__15502E78" Association="Self.FK__tblUserSk__skill__15502E78">
+      <End Role="tblSkill" EntitySet="tblSkills" />
+      <End Role="tblUserSkillLink" EntitySet="tblUserSkillLinks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblUserSk__userI__145C0A3F" Association="Self.FK__tblUserSk__userI__145C0A3F">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblUserSkillLink" EntitySet="tblUserSkillLinks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

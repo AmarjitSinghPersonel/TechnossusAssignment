@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechnossusDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblSkill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="skill" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUserSkillLink">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="skillId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tblUserSk__skill__15502E78">
+    <End Role="tblSkill" Type="Self.tblSkill" Multiplicity="1" />
+    <End Role="tblUserSkillLink" Type="Self.tblUserSkillLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSkill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUserSkillLink">
+        <PropertyRef Name="skillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblUserSk__userI__145C0A3F">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+    <End Role="tblUserSkillLink" Type="Self.tblUserSkillLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUserSkillLink">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TechnossusDbModelStoreContainer">
+    <EntitySet Name="tblSkill" EntityType="Self.tblSkill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUserSkillLink" EntityType="Self.tblUserSkillLink" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblUserSk__skill__15502E78" Association="Self.FK__tblUserSk__skill__15502E78">
+      <End Role="tblSkill" EntitySet="tblSkill" />
+      <End Role="tblUserSkillLink" EntitySet="tblUserSkillLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblUserSk__userI__145C0A3F" Association="Self.FK__tblUserSk__userI__145C0A3F">
+      <End Role="tblUser" EntitySet="tblUser" />
+      <End Role="tblUserSkillLink" EntitySet="tblUserSkillLink" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
