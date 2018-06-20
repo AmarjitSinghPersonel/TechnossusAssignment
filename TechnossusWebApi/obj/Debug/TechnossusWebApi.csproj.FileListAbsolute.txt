@@ -1,3 +1,4 @@
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\obj\Debug\TechnossusWebApi.csprojResolveAssemblyReference.cache
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\ApplicationInsights.config
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\roslyn\csc.exe
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -54,7 +55,6 @@ C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bi
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\TechnossusDataAccessLayer.dll
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\WebGrease.dll
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\TechnossusDataAccessLayer.pdb
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\TechnossusDataAccessLayer.dll.config
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\Microsoft.AI.Web.xml
@@ -88,8 +88,8 @@ C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bi
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\System.Web.Http.Owin.xml
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\obj\Debug\TechnossusWebApi.csprojAssemblyReference.cache
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\obj\Debug\TechnossusWebApi.csproj.CoreCompileInputs.cache
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\obj\Debug\TechnossusWebApi.csproj.CopyComplete
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\obj\Debug\TechnossusWebApi.dll
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\obj\Debug\TechnossusWebApi.pdb
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\System.Web.Cors.dll
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\System.Web.Http.Cors.dll
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusWebApi\bin\System.Web.Http.Cors.xml

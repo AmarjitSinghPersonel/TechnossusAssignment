@@ -1,9 +1,0 @@
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\bin\Debug\netstandard2.0\TechnossusDataModel.deps.json
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\bin\Debug\netstandard2.0\TechnossusDataModel.dll
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\bin\Debug\netstandard2.0\TechnossusDataModel.pdb
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\obj\Debug\netstandard2.0\TechnossusDataModel.csprojAssemblyReference.cache
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\obj\Debug\netstandard2.0\TechnossusDataModel.csproj.CoreCompileInputs.cache
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\obj\Debug\netstandard2.0\TechnossusDataModel.AssemblyInfoInputs.cache
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\obj\Debug\netstandard2.0\TechnossusDataModel.AssemblyInfo.cs
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\obj\Debug\netstandard2.0\TechnossusDataModel.dll
-C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusDataModel\obj\Debug\netstandard2.0\TechnossusDataModel.pdb

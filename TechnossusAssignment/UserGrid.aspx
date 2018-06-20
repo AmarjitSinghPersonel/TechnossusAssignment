@@ -19,63 +19,97 @@
     <script type="text/javascript" src="scripts/knockout.simpleGrid.3.0.js"></script>
      <script type="text/javascript">
 
-$( document ).ready(function() {
-  
+     	$( document ).ready(function() {
+     		var initialData=[];
+     	//	var jqxhr = $.getJSON("http://localhost:8001/Api/TechnosusApi/Get",function (data) {
+		////console.log(data);
+		//initialData = data;
+		////console.log(initialData);
+     	//	});
+			
+     		$.ajax({
+     			url: "http://localhost:8001/Api/TechnosusApi/Get",
+     			dataType: 'json',
+     			async: false,     			
+     			success: function (data) {
+     				//console.log($.parseJSON(data));
+     				initialData = $.parseJSON(data);
+     			}
+     		});
+	//console.log(initialData);
 
-            var initialData = [
-        { name: "Well-Travelled Kitten", sales: 352, price: 75.95 },
-        { name: "Speedy Coyote", sales: 89, price: 190.00 },
-        { name: "Furious Lizard", sales: 152, price: 25.00 },
-        { name: "Indifferent Monkey", sales: 1, price: 99.95 },
-        { name: "Brooding Dragon", sales: 0, price: 6350 },
-        { name: "Ingenious Tadpole", sales: 39450, price: 0.35 },
-        { name: "Optimistic Snail", sales: 420, price: 1.50 }
-    ];
- 
+    // var initialData = [
+    //    { Username: "Well-Travelled Kitten", Skills: 352},
+    //    { Username: "Speedy Coyote", Skills: 89},
+    //    { Username: "Furious Lizard", Skills: 152 },
+    //    { Username: "Indifferent Monkey", Skills: 1},
+    //    { Username: "Brooding Dragon", Skills: 0},
+    //    { Username: "Ingenious Tadpole", Skills: 39450},
+    //    { Username: "Optimistic Snail", Skills: 420}
+     		//];
+	//var initialData = [{ "Id": 1, "Name": "Amarjit", "Address": "Rajwal", "Skill": "CSharp,VB.Net" }, { "Id": 2, "Name": "Pamarjit", "Address": "Vpo - Rajwal", "Skill": "CSharp,VB.Net" }, { "Id": 3, "Name": "Rishi", "Address": "Talwar", "Skill": "CSharp,SQL" }, { "Id": 4, "Name": "Tapan", "Address": "Roorkee", "Skill": "SQL,CSharp" }, { "Id": 5, "Name": "Rajinder", "Address": "Danger kherda", "Skill": "Linq,CSharp" }];
+     		
     var PagedGridModel = function(items) {
         this.items = ko.observableArray(items);
  
         this.addItem = function() {
-            this.items.push({ name: "New item", sales: 0, price: 100 });
+        	this.items.push({ Name: "New item", Address: 'Address', Skill: 0 });
+			
         };
  
         this.reBind = function () {
-            initialData = [
-        { name: "Amarjit", sales: 352, price: 75.95 },
-        { name: "Singh", sales: 89, price: 190.00 },      
-        ];
-
+        	//alert('cc');
+        	$.ajax({
+        		url: "http://localhost:8001/Api/TechnosusApi/Get",
+        		dataType: 'json',
+        		async: false,
+        		success: function (data) {
+        			//console.log($.parseJSON(data));
+        			initialData = $.parseJSON(data);
+        			
+        		}
+        	});
+        	this.items.removeAll();
+        	//this.items.push(initialData);
+        	
+        	ko.utils.arrayForEach(initialData, function (item) {
+        		console.log(item);
+        		ko.observableArray(items).push({ "Id": 1, "Name": "Amarjit", "Address": "Rajwal", "Skill": "CSharp,VB.Net" });
+        	});
+			
         };
  
         this.gridViewModel = new ko.simpleGrid.viewModel({
             data: this.items,
             columns: [
-                { headerText: "User Name", rowText: "name" },
-                { headerText: "Skills", rowText: "sales" },
-                { headerText: "Price", rowText: function (item) { return "$" + item.price.toFixed(2) } }
+                { headerText: "User Name", rowText: "Name" },
+				{ headerText: "Address", rowText: "Address" },
+				{ headerText: "Skills", rowText: "Skill" }
+				
+               // { headerText: "Price", rowText: function (item) { return "$" + item.price.toFixed(2) } }
             ],
             pageSize: 8
         });
     };
-      ko.applyBindings(new PagedGridModel(initialData));
- });
-  
+    console.log(initialData); 
+  	ko.applyBindings(new PagedGridModel(initialData));    
+});
+
    </script>
+    <script type="text/javascript">
     
+
+    </script>
     <form id="form1" runat="server">
         <h1 class="h1" style="margin-left:5%;">Technossus Assignment</h1>
         <div style="margin-left:30%; margin-top:7%;">
-            <div data-bind='simpleGrid: gridViewModel' class="table"> </div>
- 
+            <div data-bind='simpleGrid: gridViewModel' class="table"> </div> 
             <button class="btn" data-bind='click: addItem'>
                 Add item
             </button>
-             <button class="btn" data-bind='click: reBind'>
+             <button class="btn" data-bind='click: reBind'>			
                 Search
-            </button>
-            
- 
-          
+            </button>          
         </div>
     </form>
 </body>

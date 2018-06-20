@@ -10,6 +10,13 @@ namespace TechnossusModel
     {
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public List<tblSkillModel> Skill { get; set; }
+		public string Address { get; set; }
+		public string Skill { get; set; }
+	}
+	public class JsonUserModel
+	{
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public string Skill { get; set; }
 	}
 }
