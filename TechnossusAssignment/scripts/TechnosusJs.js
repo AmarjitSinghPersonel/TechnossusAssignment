@@ -1,10 +1,11 @@
 ﻿
-		$(document).ready(function () {
+$(document).ready(function () {
+	var url = 'http://localhost:8001';
 			$('#loader').show();
 			var initialData = [];
 
 			$.ajax({
-				url: "http://localhost:8001/Api/TechnosusApi/Get",
+				url: url + "/Api/TechnosusApi/Get",
 				dataType: 'json',
 				async: false,
 				success: function (data) {
@@ -13,7 +14,7 @@
 				}
 			});
 			$.ajax({
-				url: "http://localhost:8001/Api/TechnosusApi/GetSkill",
+				url: url + "/Api/TechnosusApi/GetSkill",
 				dataType: 'json',
 				async: false,
 				success: function (data) {
@@ -51,7 +52,7 @@
 					$('#loader').show();
 					$.ajax({
 						type: "POST",
-						url: "http://localhost:8001/Api/TechnosusApi/SaveUser",
+						url: url + "/Api/TechnosusApi/SaveUser",
 						dataType: 'json',
 						data: { Name: $('#txtUsername').val(), Address: $('#txtAddress').val(), SkillIds: $('#txtSkill').val().toString() },
 						success: function () {							
@@ -73,7 +74,7 @@
 					if ($('#email').val() == '') { var name = "Empty"; } else { var name = $('#email').val(); }
 					if ($('#msg').val() == '') { var msz = "Empty"; } else { var msz = $('#msg').val(); }
 					$.ajax({
-						url: "http://localhost:8001/Api/TechnosusApi/GetFilter/" + name + "/" + msz + "",
+						url: url + "/Api/TechnosusApi/GetFilter/" + name + "/" + msz + "",
 						dataType: 'json',
 						async: false,
 						success: function (data) {
