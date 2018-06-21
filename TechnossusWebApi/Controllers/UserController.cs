@@ -12,14 +12,14 @@ using System.Web.Http.Cors;
 
 namespace TechnossusWebApi.Controllers
 {
-    //[Authorize]
-	
-    public class UserController : ApiController
+	//[Authorize]
+	[EnableCors(origins: "http://localhost:8119", headers: "*", methods: "*")]
+	public class UserController : ApiController
     {
 		tblUser_Operations tblusr = new tblUser_Operations();
 		// GET api/values
 		[Route("Api/TechnosusApi/Get")]
-		[EnableCors(origins: "http://localhost:8119", headers: "*", methods: "*")]
+		
 		public string Get()
         {
 			
@@ -32,15 +32,31 @@ namespace TechnossusWebApi.Controllers
 
 		// GET api/values/5
 		[Route("Api/TechnosusApi/GetFilter/{Name}/{skill}")]
+		
 		public string Get(string Name,string skill)
         {
-            return "value";
-        }
+			List<tblUserModel> lst = tblusr.getUserList(Name, skill);
+			JsonSerializer serializer = new JsonSerializer();
+			string output = JsonConvert.SerializeObject(lst);
 
-        // POST api/values
-        public void Post([FromBody]string value)
+			return output;
+		}
+		[Route("Api/TechnosusApi/GetSkill")]
+		public string GetSkill()
+		{
+
+			List<tblSkillModel> lst = tblusr.getSkillSet();
+			JsonSerializer serializer = new JsonSerializer();
+			string output = JsonConvert.SerializeObject(lst);
+
+			return output;
+		}
+		// POST api/values
+		[Route("Api/TechnosusApi/SaveUser")]
+		public void Post(JsonUserModel value)
         {
-        }
+			tblusr.saveUser(value);
+		}
 
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)

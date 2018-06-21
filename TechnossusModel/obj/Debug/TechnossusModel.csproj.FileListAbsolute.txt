@@ -2,3 +2,4 @@ C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusModel\bin
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusModel\bin\Debug\TechnossusModel.pdb
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusModel\obj\Debug\TechnossusModel.dll
 C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusModel\obj\Debug\TechnossusModel.pdb
+C:\Users\amarjit.singh\Documents\GitHub\TechnossusAssignment\TechnossusModel\obj\Debug\TechnossusModel.csprojResolveAssemblyReference.cache

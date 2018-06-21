@@ -4,113 +4,95 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>
-        
-    </title>
-    
-   
+	<title></title>
+
+
 </head>
 <body>
-   <script type="text/javascript" src="scripts/jquery-3.3.1.js"></script>
-    <link rel="stylesheet" href="Content/bootstrap.css" />
-    <link rel="stylesheet" href="Content/bootstrap-grid.css" />
-    <script type="text/javascript" src="scripts/bootstrap.js"></script>        
-    <script type="text/javascript" src="scripts/knockout-3.4.2.js"></script>
-    <script type="text/javascript" src="scripts/knockout.simpleGrid.3.0.js"></script>
-     <script type="text/javascript">
+	<style>
+		.vl {
+			border-left: 6px solid grey;
+			height: 500px;
+		}
 
-     	$( document ).ready(function() {
-     		var initialData=[];
-     	//	var jqxhr = $.getJSON("http://localhost:8001/Api/TechnosusApi/Get",function (data) {
-		////console.log(data);
-		//initialData = data;
-		////console.log(initialData);
-     	//	});
-			
-     		$.ajax({
-     			url: "http://localhost:8001/Api/TechnosusApi/Get",
-     			dataType: 'json',
-     			async: false,     			
-     			success: function (data) {
-     				//console.log($.parseJSON(data));
-     				initialData = $.parseJSON(data);
-     			}
-     		});
-	//console.log(initialData);
+		.loader {
+			border: 16px solid #f3f3f3; /* Light grey */
+			border-top: 16px solid #3498db; /* Blue */
+			border-radius: 50%;
+			width: 120px;
+			height: 120px;
+			animation: spin 2s linear infinite;
+			position: fixed;
+			top: 35%;
+			left: 45%;
+			z-index: 100;
+		}
 
-    // var initialData = [
-    //    { Username: "Well-Travelled Kitten", Skills: 352},
-    //    { Username: "Speedy Coyote", Skills: 89},
-    //    { Username: "Furious Lizard", Skills: 152 },
-    //    { Username: "Indifferent Monkey", Skills: 1},
-    //    { Username: "Brooding Dragon", Skills: 0},
-    //    { Username: "Ingenious Tadpole", Skills: 39450},
-    //    { Username: "Optimistic Snail", Skills: 420}
-     		//];
-	//var initialData = [{ "Id": 1, "Name": "Amarjit", "Address": "Rajwal", "Skill": "CSharp,VB.Net" }, { "Id": 2, "Name": "Pamarjit", "Address": "Vpo - Rajwal", "Skill": "CSharp,VB.Net" }, { "Id": 3, "Name": "Rishi", "Address": "Talwar", "Skill": "CSharp,SQL" }, { "Id": 4, "Name": "Tapan", "Address": "Roorkee", "Skill": "SQL,CSharp" }, { "Id": 5, "Name": "Rajinder", "Address": "Danger kherda", "Skill": "Linq,CSharp" }];
-     		
-    var PagedGridModel = function(items) {
-        this.items = ko.observableArray(items);
- 
-        this.addItem = function() {
-        	this.items.push({ Name: "New item", Address: 'Address', Skill: 0 });
-			
-        };
- 
-        this.reBind = function () {
-        	//alert('cc');
-        	$.ajax({
-        		url: "http://localhost:8001/Api/TechnosusApi/Get",
-        		dataType: 'json',
-        		async: false,
-        		success: function (data) {
-        			//console.log($.parseJSON(data));
-        			initialData = $.parseJSON(data);
-        			
-        		}
-        	});
-        	this.items.removeAll();
-        	//this.items.push(initialData);
-        	
-        	ko.utils.arrayForEach(initialData, function (item) {
-        		console.log(item);
-        		ko.observableArray(items).push({ "Id": 1, "Name": "Amarjit", "Address": "Rajwal", "Skill": "CSharp,VB.Net" });
-        	});
-			
-        };
- 
-        this.gridViewModel = new ko.simpleGrid.viewModel({
-            data: this.items,
-            columns: [
-                { headerText: "User Name", rowText: "Name" },
-				{ headerText: "Address", rowText: "Address" },
-				{ headerText: "Skills", rowText: "Skill" }
-				
-               // { headerText: "Price", rowText: function (item) { return "$" + item.price.toFixed(2) } }
-            ],
-            pageSize: 8
-        });
-    };
-    console.log(initialData); 
-  	ko.applyBindings(new PagedGridModel(initialData));    
-});
+		@keyframes spin {
+			0% {
+				transform: rotate(0deg);
+			}
 
-   </script>
-    <script type="text/javascript">
-    
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+	<script type="text/javascript" src="scripts/jquery-3.3.1.js"></script>
+	<link rel="stylesheet" href="Content/bootstrap.css" />
+	<link rel="stylesheet" href="Content/bootstrap-grid.css" />
+	<script type="text/javascript" src="scripts/bootstrap.js"></script>
+	<script type="text/javascript" src="scripts/knockout-3.4.2.js"></script>
+	<script type="text/javascript" src="scripts/knockout.simpleGrid.3.0.js"></script>
+	<script type="text/javascript" src="scripts/TechnosusJs.js"></script>
 
-    </script>
-    <form id="form1" runat="server">
-        <h1 class="h1" style="margin-left:5%;">Technossus Assignment</h1>
-        <div style="margin-left:30%; margin-top:7%;">
-            <div data-bind='simpleGrid: gridViewModel' class="table"> </div> 
-            <button class="btn" data-bind='click: addItem'>
-                Add item
-            </button>
-             <button class="btn" data-bind='click: reBind'>			
-                Search
-            </button>          
-        </div>
-    </form>
+	<form id="form1" runat="server">
+		<div id="loader" class="loader"></div>
+		<h1 class="h1" style="margin-left: 5%;">Technossus Assignment</h1>
+		<table style="width: 100%">
+			<tr style="width: 100%">
+				<td style="width: 45%">
+					<div style="margin-left: 10%; margin-top: 3%;">
+						<div class="input-group" style="width: 33%;">
+
+							<input id="email" type="text" class="form-control" name="email" placeholder="UserName" />
+						</div>
+						<div class="input-group" style="width: 33%; margin-top: 8px; margin-bottom: 8px;">
+
+							<input id="msg" type="text" class="form-control" name="msg" placeholder="Skill" />
+						</div>
+						<button class="btn" data-bind='click: reBind'>
+							Search
+						</button>
+						<br />
+						<div data-bind='simpleGrid: gridViewModel' class="table" style="width: 33%"></div>
+						<br />
+
+					</div>
+				</td>
+				<td style="width: 10%">
+					<div class="vl"></div>
+				</td>
+				<td style="width: 45%">
+					<div>
+						<div class="input-group" style="width: 50%;">
+							<input id="txtUsername" type="text" class="form-control" name="email" placeholder="UserName" />
+						</div>
+						<div class="input-group" style="width: 50%; margin-top: 5px;">
+							<input id="txtAddress" type="text" class="form-control" name="msg" placeholder="Address" />
+						</div>
+						<div style="width: 50%; margin-top: 5px;">
+							<select class="border" multiple="multiple" id="txtSkill" style="height: 150px; width: 250px;" name="msg"></select>
+						</div>
+						<button class="btn" data-bind='click: addItem' style="margin-top: 3px;">
+							Add item
+						</button>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+
+	</form>
 </body>
 </html>

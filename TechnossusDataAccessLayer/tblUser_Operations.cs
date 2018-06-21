@@ -16,35 +16,35 @@ namespace TechnossusDataAccessLayer
 			return usr;
 		}
 		//Same funvction will work for search and get All User List
-		public List<tblUserModel> getUserList(string name = "", string skill = "")
+		public List<tblUserModel> getUserList(string name = "Empty", string skill = "Empty")
 		{
 			try
 			{
 				#region FunctionBody
 				dynamic lst;
 				List<tblUserModel> usrLst = new List<tblUserModel>();
-				if (name != "" && skill != "")
+				if (name != "Empty" && skill != "Empty")
 				{
 					lst = from tu in dbEntities.tblUsers
 						  join tul in dbEntities.tblUserSkillLinks on tu.Id equals tul.userId
 						  join ts in dbEntities.tblSkills on tul.skillId equals ts.Id
-						  where tu.Name.Contains("%/" + name + "/%") && ts.skill.Contains("%/" + skill + "/%")
+						  where tu.Name.Contains( name ) && ts.skill.Contains(skill)
 						  select new { tu.Id, tu.Name, ts.skill, tu.Address };
 				}
-				else if (name != "")
+				else if (name != "Empty")
 				{
 					lst = from tu in dbEntities.tblUsers
 						  join tul in dbEntities.tblUserSkillLinks on tu.Id equals tul.userId
 						  join ts in dbEntities.tblSkills on tul.skillId equals ts.Id
-						  where tu.Name.Contains("%/" + name + "/%")
+						  where tu.Name.Contains(name)
 						  select new { tu.Id, tu.Name, ts.skill, tu.Address };
 				}
-				else if (skill != "")
+				else if (skill != "Empty")
 				{
 					lst = from tu in dbEntities.tblUsers
 						  join tul in dbEntities.tblUserSkillLinks on tu.Id equals tul.userId
 						  join ts in dbEntities.tblSkills on tul.skillId equals ts.Id
-						  where ts.skill.Contains("%/" + skill + "/%")
+						  where ts.skill.Contains(skill)
 						  select new { tu.Id, tu.Name, ts.skill, tu.Address };
 				}
 				else
@@ -86,6 +86,32 @@ namespace TechnossusDataAccessLayer
 
 				throw;
 			}
+		}
+		public List<tblSkillModel> getSkillSet()
+		{
+			List<tblSkillModel> lst = new List<tblSkillModel>();
+			lst = (from skil in dbEntities.tblSkills select new tblSkillModel { Id = skil.Id, Skill = skil.skill }).ToList();
+			return lst;
+		}
+		public void saveUser(JsonUserModel obj)
+		{
+			var user = new tblUser()
+			{
+				Name = obj.Name,
+				Address = obj.Address
+			};
+			dbEntities.tblUsers.Add(user);
+			var skillIds = obj.SkillIds.Split(',');
+			foreach(var skill in skillIds)
+			{
+				dbEntities.tblUserSkillLinks.Add(new tblUserSkillLink()
+				{
+					skillId = Convert.ToInt16(skill),
+					userId = user.Id
+				});
+			}
+			
+			dbEntities.SaveChanges();
 		}
 	}
 }
